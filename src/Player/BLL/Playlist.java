@@ -1,29 +1,32 @@
 package Player.BLL;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.LinkedList;
-
+import java.util.List;
 
 public class Playlist {
     
-    private LinkedList<Song> playlistSongList;    
-    public LinkedList<Song> getPlaylistSongList() {
+    //constructor 
+    public Playlist(String playlistName) {
+        this.playlistName = playlistName;
+        this.playlistSongList = new ArrayList<Song>();
+    }
+    
+    private List<Song> playlistSongList;
+
+    public List<Song> getPlaylistSongList() {
         return playlistSongList;
     }
     
     private String playlistName;
+
     public String getPlaylistName() {
         return playlistName;
     }
-    
-    public Playlist(String playlistName) {
-        this.playlistName = playlistName; 
-        this.playlistSongList = new LinkedList<Song>(); 
-    }
 
     public int songCount() {
-       return playlistSongList.size(); 
+        return playlistSongList.size();
     }
 
     public void addSong(Song songAdded) {
@@ -36,5 +39,5 @@ public class Playlist {
 
     public Collection<Song> getAllSongs() {
         return Collections.unmodifiableCollection(playlistSongList);
-    }   
+    }
 }
