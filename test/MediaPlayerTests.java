@@ -29,10 +29,6 @@ public class MediaPlayerTests {
     public void setUp() {
         currentPlaylist = new Playlist("Test");
         mediaPlayer = new MediaPlayer(currentPlaylist);
-        currentPlaylist.addSong(song1);
-        currentPlaylist.addSong(song2);
-        currentPlaylist.addSong(song3);
-        currentPlaylist.addSong(song4);
     }
 
     @After
@@ -41,12 +37,20 @@ public class MediaPlayerTests {
 
     @Test
     public void getCurrentSongTest() {
+        currentPlaylist.addSong(song1);
+        currentPlaylist.addSong(song2);
+        currentPlaylist.addSong(song3);
+        currentPlaylist.addSong(song4);
         mediaPlayer.getCurrentSong();
         assertEquals(song1, mediaPlayer.getCurrentSong());
     }
 
     @Test
     public void skipPlaylistSongTest() {
+        currentPlaylist.addSong(song1);
+        currentPlaylist.addSong(song2);
+        currentPlaylist.addSong(song3);
+        currentPlaylist.addSong(song4);
         mediaPlayer.getCurrentSong();
         mediaPlayer.getNextSong(currentPlaylist);
         mediaPlayer.getNextSong(currentPlaylist);
